@@ -3,4 +3,4 @@ docker.log
 *.tmp
 *.swp
 *.pem
-
+*.rdb

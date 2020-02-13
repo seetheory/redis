@@ -15,11 +15,11 @@ set -e
 
 echo "${yellow}starting${reset} container $PNAME"
 
-dargs=" --rm --name=$PNAME -p 6379:6379 "
+dargs=" --rm -v $(pwd)/redis:/redis:rw --name=$PNAME -p 6379:6379 "
 if [ "$1" == '-i' ]
 then
 docker run -it $dargs redis:5.0 bash
 else
-docker run -d $dargs redis:5.0
+docker run -d $dargs redis:5.0 /redis/redis.conf
 fi
 
