@@ -1,0 +1,6 @@
+docker.log
+.DS_Store
+*.tmp
+*.swp
+*.pem
+
