@@ -13,13 +13,13 @@ docker container rm $PNAME 2>> docker.log || printf "${red}container ${yellow}re
 
 set -e
 
-echo "${yellow}starting${reset} container $PNAME"
+printf "${yellow}starting${reset} container $PNAME\n"
 
 dargs=" --rm -v $(pwd)/redis:/redis:rw --name=$PNAME -p 6379:6379 "
-if [ "$1" == '-i' ]
+if [ "$1" = "-i" ];
 then
-docker run -it $dargs redis:5.0 bash
+  docker run -it $dargs redis:5.0 bash
 else
-docker run -d $dargs redis:5.0 /redis/redis.conf
+  docker run -d $dargs redis:5.0 /redis/redis.conf
 fi
 
